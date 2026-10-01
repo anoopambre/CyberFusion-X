@@ -1,0 +1,253 @@
+/* ==========================================================================
+   CyberFusion X - Forensic Investigation Platform
+   Design System: Warm Ivory, Charcoal, Forest Green, & Subtle Copper Accents
+   ========================================================================== */
+
+:root {
+  /* Charcoal Base & Surface Tiers */
+  --cfx-charcoal-void: #0B0E0F;
+  --cfx-charcoal-root: #0F1315;
+  --cfx-charcoal-subtle: #14191C;
+  --cfx-charcoal-card: #182024;
+  --cfx-charcoal-card-hover: #1E282D;
+  --cfx-charcoal-border: rgba(239, 232, 223, 0.08);
+  --cfx-charcoal-border-light: rgba(239, 232, 223, 0.14);
+
+  /* Warm Ivory Text & High-Contrast Accents */
+  --cfx-ivory-100: #FAF7F2;
+  --cfx-ivory-200: #F4EFEA;
+  --cfx-ivory-300: #EFE8DF;
+  --cfx-ivory-400: #D8CFBF;
+  --cfx-ivory-500: #B7ABA0;
+  --cfx-ivory-muted: #8E877D;
+
+  /* Forest Green - Cryptographic Integrity, Trust, Operational Status */
+  --cfx-forest-deep: #0D2119;
+  --cfx-forest-base: #143628;
+  --cfx-forest-border: #1E4E3A;
+  --cfx-forest-mid: #256148;
+  --cfx-forest-accent: #34D399;
+  --cfx-forest-glow: rgba(52, 211, 153, 0.15);
+  --cfx-forest-badge-bg: rgba(20, 54, 40, 0.55);
+
+  /* Subtle Copper - Incident Telemetry, Active Artifacts, Threat Priority */
+  --cfx-copper-dark: #6C3317;
+  --cfx-copper-base: #A35027;
+  --cfx-copper-mid: #C66E3E;
+  --cfx-copper-light: #DA8554;
+  --cfx-copper-bright: #ECA376;
+  --cfx-copper-glow: rgba(218, 133, 84, 0.18);
+  --cfx-copper-badge-bg: rgba(163, 80, 39, 0.25);
+
+  /* Tactical Alert Indicators */
+  --cfx-alert-crimson: #E05252;
+  --cfx-alert-crimson-bg: rgba(224, 82, 82, 0.18);
+  --cfx-alert-amber: #E5A83B;
+  --cfx-alert-amber-bg: rgba(229, 168, 59, 0.18);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Shadows & Elevations */
+  --cfx-shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+  --cfx-shadow-elevated: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  --cfx-shadow-glow-copper: 0 0 20px rgba(218, 133, 84, 0.2);
+  --cfx-shadow-glow-forest: 0 0 20px rgba(52, 211, 153, 0.2);
+
+  /* Layout Constants */
+  --sidebar-width: 272px;
+  --sidebar-collapsed-width: 76px;
+  --topbar-height: 68px;
+}
+
+/* Base Document Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cfx-charcoal-void);
+  color: var(--cfx-ivory-300);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cfx-charcoal-root);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(239, 232, 223, 0.18);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(218, 133, 84, 0.4);
+}
+
+/* Forensic Monospace Utilities */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Global Button & Control Resets */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Subtle Grid Texture for Forensic Immersion */
+.forensic-grid-background {
+  background-image: 
+    linear-gradient(to right, rgba(239, 232, 223, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 232, 223, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Forensic Card Glassmorphism */
+.cfx-card {
+  background-color: var(--cfx-charcoal-card);
+  border: 1px solid var(--cfx-charcoal-border);
+  border-radius: 8px;
+  box-shadow: var(--cfx-shadow-card);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.cfx-card:hover {
+  border-color: var(--cfx-charcoal-border-light);
+}
+
+.cfx-card-copper {
+  border-left: 3px solid var(--cfx-copper-mid);
+}
+
+.cfx-card-forest {
+  border-left: 3px solid var(--cfx-forest-accent);
+}
+
+/* Pulsing Status Indicators */
+.pulse-green {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cfx-forest-accent);
+  box-shadow: 0 0 8px var(--cfx-forest-accent);
+  animation: pulse-kf 2s infinite ease-in-out;
+}
+
+.pulse-copper {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cfx-copper-light);
+  box-shadow: 0 0 8px var(--cfx-copper-light);
+  animation: pulse-kf 2.4s infinite ease-in-out;
+}
+
+@keyframes pulse-kf {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+}
+
+/* Primary Action Buttons with Warm Copper and Forest Accents */
+.btn-copper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--cfx-copper-base) 0%, var(--cfx-copper-mid) 100%);
+  color: var(--cfx-ivory-100);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(218, 133, 84, 0.4);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(163, 80, 39, 0.3);
+}
+
+.btn-copper:hover {
+  background: linear-gradient(135deg, var(--cfx-copper-mid) 0%, var(--cfx-copper-light) 100%);
+  box-shadow: var(--cfx-shadow-glow-copper);
+  transform: translateY(-1px);
+}
+
+.btn-forest {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--cfx-forest-base) 0%, var(--cfx-forest-mid) 100%);
+  color: var(--cfx-ivory-100);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--cfx-forest-border);
+  transition: all 0.2s ease;
+}
+
+.btn-forest:hover {
+  background: var(--cfx-forest-mid);
+  box-shadow: var(--cfx-shadow-glow-forest);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 232, 223, 0.04);
+  color: var(--cfx-ivory-300);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--cfx-charcoal-border);
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(239, 232, 223, 0.08);
+  color: var(--cfx-ivory-100);
+  border-color: var(--cfx-charcoal-border-light);
+}
